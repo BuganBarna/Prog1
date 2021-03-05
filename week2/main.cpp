@@ -75,9 +75,9 @@ int main()
 
 	oss<<"sreen size: "<<x_max()<<"*"<<y_max()<<"*window size: "<<win.x_max()<<"*"<<win.y_max();	
 
-	Text sizes{Point{100,40},oss.str()};
+	Text sizes{Point{90,40},oss.str()};
 
-	Image cal(Point{225,225},"matrix.gif");
+	Image cal(Point{220,220},"matrix.gif");
 	cal.set_mask(Point{40,40},200,150);
 
 	win.attach(kep);
