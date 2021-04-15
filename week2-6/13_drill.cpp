@@ -1,7 +1,7 @@
 #include "Graph.h"
 #include "Simple_window.h"
 
-/* g++ 13_drill.cpp Graph.cpp Window.cpp GUI.cpp Simple_window.cpp -o main `fltk-config --ldflags --use-images` */
+/* g++ 13_drill.cpp Graph.cpp Window.cpp GUI.cpp Simple_window.cpp -o 13_drill `fltk-config --ldflags --use-images` */
 
 int main()
 {
@@ -49,21 +49,34 @@ int main()
 	win.attach(im2);
 	win.attach(im3);
 
-	Image mv_im{Point{0,0},"kep.jpg"};
-	mv_im.set_mask(Point{100,100}, 100,100);
+	Image mozg_im{Point{0,0},"kep.jpg"};
+	mozg_im.set_mask(Point{100,100}, 100,100);
 
-	win.attach(mv_im);
+	win.attach(mozg_im);
 
 	win.attach(grid);
 
-	int number=0;
+	int a=0;
+	int seged_valtozo=0;
+	while(true)
+	{
+		++a;
 
-	for(int i=0; i<6; ++i)
-		{
-			win.wait_for_button();
-			mv_im.move(100,0);
+		win.wait_for_button();
 
-		}
+		if(a<8)
+			{
+				mozg_im.move(100,0);
+				
+			}
+		else 
+			{
+				mozg_im.move(-700,100);
+				seged_valtozo+=a;
+				if(seged_valtozo==64) break;
+				a=0;
+			}
+	}
 
-	win.wait_for_button();
+
 }
