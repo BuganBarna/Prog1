@@ -1,5 +1,7 @@
 #include "std_lib_facilities.h"
 
+/* g++ 15.2_drill.cpp Graph.cpp Window.cpp GUI.cpp Simple_window.cpp -o 15.2_drill `fltk-config --ldflags --use-images` */
+
 struct Person {
 		Person() : first_nm(""), second_nm(""), age_n(0) { }
 
@@ -39,7 +41,7 @@ private:
 		string first_nm;
 };
 
-ostream& operator<<(ostream& o, Person& p)
+ostream& operator<<(ostream& o, const Person& p)
 {
 	return o<<p.first_name()<<" "<<p.second_name() <<" "<< p.age();
 }
@@ -62,8 +64,16 @@ int main()
 	
 	vector<Person> vec;
 	Person proba;
-	cin>>proba;
-	vec.push_back(proba);
-	cout<<vec[0]<<endl;
+	cout<<"Adjon meg 6 db(Vezeteknev Keresznev eletkor)"<<endl;
+	for(int i=0; i<6; ++i)
+	{
+		cin>>proba;
+		vec.push_back(proba);
+	}
+
+	for(int i=0; i<6; ++i)
+	{
+		cout<<vec[i]<<endl;
+	}
 	
 }
